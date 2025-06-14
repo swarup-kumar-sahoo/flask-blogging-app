@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabTalks | Update Profile</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Fixed header -->
+        <header class="top-bar">
+            <div class="header-content">
+                <div class="header-left">
+                    <h2>LabTalks</h2>
+                </div>
+                <div class="header-right">
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <h1>LabTalks</h1>
+                </div>
+                <button class="close-menu" id="closeMenu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="{{url_for('index')}}">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url_for('display')}}">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="{{url_for('update')}}">
+                        <i class="fas fa-edit"></i>
+                        <span>Update</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url_for('logout')}}">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Log out</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="main-content">
+            <div class="content-area">
+                <h1 style="text-align:center">Update your Profile</h1>
+                <div class="update-card">
+                    <h2 class="section-title">Update Your Details</h2>
+                    <form action="{{ url_for('update') }}" method="post" autocomplete="off" class="update-form">
+                        {% if msg %}
+                        <div class="alert">{{ msg }}</div>
+                        {% endif %}
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <input type="text" name="username" placeholder="Enter Your Username" class="textbox" id="username" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" placeholder="Enter Your Password" class="textbox" id="password" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Enter Your Email ID" class="textbox" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="collage" placeholder="Enter Your College" class="textbox" id="collage" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="city" placeholder="Enter Your City" class="textbox" id="city" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="state" placeholder="Enter Your State" class="textbox" id="state" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="country" placeholder="Enter Your Country" class="textbox" id="country" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn">Update Profile</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const sidebar = document.getElementById('sidebar');
+        const dashboard = document.querySelector('.dashboard-container');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.add('active');
+            dashboard.classList.add('overlay');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            dashboard.classList.remove('overlay');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+                sidebar.classList.remove('active');
+                dashboard.classList.remove('overlay');
+            }
+        });
+
+        // Update scroll effect handler
+        document.addEventListener('scroll', () => {
+            const header = document.querySelector('.top-bar');
+            if (window.scrollY > 10) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

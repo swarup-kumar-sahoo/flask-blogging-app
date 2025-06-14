@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabTalks | Home</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Move the header outside the main-content for fixed positioning -->
+        <header class="top-bar">
+            <div class="header-content">
+                <div class="header-left">
+                    <h2>LabTalks</h2>
+                </div>
+                <div class="header-right">
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <h1>LabTalks</h1>
+                </div>
+                <button class="close-menu" id="closeMenu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="nav-links">
+                <li class="active">
+                    <a href="{{url_for('index')}}">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url_for('display')}}">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url_for('update')}}">
+                        <i class="fas fa-edit"></i>
+                        <span>Update</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url_for('logout')}}">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Log out</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="main-content">
+            <div class="content-area">
+                {% if msg %}
+                <div class="popup" id="successPopup">
+                    <div class="popup-content">
+                        <i class="fas fa-check-circle"></i>
+                        <p>{{ msg }}</p>
+                        <button class="close-popup" onclick="closePopup()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                {% endif %}
+                 
+                <section class="text-black-400 bg-black-900 body-font">
+                    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+                        <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+                        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white" style="padding-bottom:30px">LabTalks -
+                            <br class="hidden lg:inline-block">Where Science Speaks First
+                        </h1>
+                        <p class="mb-8 leading-relaxed">Stay ahead with the latest breakthroughs in science, technology, and innovation. From quantum discoveries to climate insights — all in one place.</p>
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Containts -->
+            
+                
+            </div>
+            <section class="text-black-400 bg-black-900 body-font" style="padding-top:30px">
+                            <div class="container px-5 py-24 mx-auto">
+                                <div class="flex flex-wrap -m-4" style="padding-right:1px, padding-bottom:5px">
+                                <div class="p-4 md:w-1/3" style="padding-right:5px">
+                                    <div class="h-full border-black-800 rounded-lg overflow-hidden">
+                                    <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQk3BIB1pitkyG7FQ5Q90RDxkhsRGCDmYtaag&s" alt="blog">
+                                    <div class="p-6">
+                                        <h2 class="tracking-widest text-xs title-font font-medium text-green-500 mb-1" style="padding:10px">Astrobiology</h2>
+                                        <h1 class="title-font text-lg font-medium text-white mb-3" style="padding:10px">Life on Europa?</h1>
+                                        <p class="leading-relaxed mb-3 text-white" style="padding:10px">NASA explores Jupiter’s icy moon for signs of hidden oceans and possible life.</p>
+                                        <div class="flex items-center flex-wrap" style="padding-bottom:10px">
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="p-4 md:w-1/3" style="padding-right:5px">
+                                    <div class="h-full border-black-800 rounded-lg overflow-hidden">
+                                    <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://wp.technologyreview.com/wp-content/uploads/2021/10/protein2.jpg" alt="blog">
+                                    <div class="p-6">
+                                        <h2 class="tracking-widest text-xs title-font font-medium text-green-500 mb-1" style="padding:10px">Artificial Intelligence</h2>
+                                        <h1 class="title-font text-lg font-medium text-white mb-3" style="padding:10px">AI Solves Proteins</h1>
+                                        <p class="leading-relaxed mb-3 text-white" style="padding:10px">AlphaFold cracks protein folding, speeding up medical research globally.</p>
+                                        <div class="flex items-center flex-wrap" style="padding-bottom:10px">
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="p-4 md:w-1/3" style="padding-right:5px">
+                                    <div class="h-full border-black-800 rounded-lg overflow-hidden">
+                                    <img class="lg:h-48 md:h-36 w-full object-cover object-center" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ17knEn1H_Wi_FGR-bJFSW7pgeggypC2veg&s" alt="blog">
+                                    <div class="p-6">
+                                        <h2 class="tracking-widest text-xs title-font font-medium text-green-500 mb-1" style="padding:10px">Climate Science</h2>
+                                        <h1 class="title-font text-lg font-medium text-white mb-3" style="padding:10px">Tipping Point Near</h1>
+                                        <p class="leading-relaxed mb-3 text-white" style="padding:10px">Melting ice and forest loss could cause irreversible climate change soon.</p>
+                                        <div class="flex items-center flex-wrap" style="padding-bottom:10px">
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                </section>
+
+                <section class="text-gray-600 body-font" style="padding: 20px">
+                        <div class="container px-5 py-24 mx-auto flex flex-col">
+                            <div class="lg:w-4/6 mx-auto">
+                            <div class="rounded-lg h-64 overflow-hidden" style="padding: 20px">
+                                <img alt="content" class="object-cover object-center h-full w-full" src="https://cdn.mos.cms.futurecdn.net/ydwsrwtqwfCre2v6KPpJcn.jpg">
+                            </div>
+                            <div class="flex flex-col sm:flex-row mt-10">
+                                <div class="sm:w-1/3 text-center sm:pr-8 sm:py-8">
+                                <div class="w-20 h-20 rounded-full inline-flex items-center justify-center bg-gray-200 overflow-hidden" style="padding: 0">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/d3/Albert_Einstein_Head.jpg" alt="Albert Einstein" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex flex-col items-center text-center justify-center" style="padding=bottom: 12px">
+                                    <h2 class="font-medium title-font mt-4 text-gray-900 text-lg">Phoebe Caulfield</h2>
+                                    <div class="w-12 h-1 bg-green-500 rounded mt-2 mb-4"></div>
+                                    <p class="text-base text-white" style="padding-top: 12px">Albert Einstein was a theoretical physicist who developed the theory of relativity.</p>
+                                </div>
+                                </div>
+                                <div class="sm:w-2/3 sm:pl-8 sm:py-8 sm:border-l border-gray-200 sm:border-t-0 border-t mt-4 pt-4 sm:mt-0 text-center sm:text-left" style="padding: 20px">
+                                <p class="leading-relaxed text-white mb-4">"The important thing is not to stop questioning. Curiosity has its own reason for existence. One cannot help but be in awe when contemplating the mysteries of eternity, of life, of the marvelous structure of reality. It is enough if one tries merely to comprehend a little of this mystery every day."</p>
+                                <p class="text-green-500 inline-flex items-center" style="padding-top: 3px"><i>- Albert Einstein</i> </p>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                </section>
+
+            <section class="text-black-400 body-font bg-black-900">
+                        <div class="container px-4 py-16 mx-auto">
+                            <!-- Header Section -->
+                            <div class="flex flex-wrap w-full mb-12">
+                                <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+                                    <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-white">Explore More</h1>
+                                    <div class="h-1 w-20 bg-green-500 rounded"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Cards Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                <div class="bg-gray-800 bg-opacity-40 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
+                                    <img class="w-full h-48 object-cover object-center" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_5Sz3kq5FrHkIOJzUGrNVs-xH0N-QD4wp2w&s" alt="content">
+                                    <div class="p-6" style="padding:10px">
+                                        <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">AI</h3>
+                                        <h2 class="text-lg text-white font-medium title-font mb-3">AI Impact</h2>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-800 bg-opacity-40 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
+                                    <img class="w-full h-48 object-cover object-center" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBjsyFySHe4VaD0NYMYj1uUMavrgCQMxOeOQ&s" alt="content">
+                                    <div class="p-6" style="padding:10px">
+                                        <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">Data</h3>
+                                        <h2 class="text-lg text-white font-medium title-font mb-3">Big Data</h2>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-800 bg-opacity-40 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
+                                    <img class="w-full h-48 object-cover object-center" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8E7Uvjg3mcxofFhpqyDse_G66-Y4QwDolww&s" alt="content">
+                                    <div class="p-6" style="padding:10px">
+                                        <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">Crypto</h3>
+                                        <h2 class="text-lg text-white font-medium title-font mb-3">Blockchain</h2>
+                                    </div>
+                                </div>
+                                <div class="bg-gray-800 bg-opacity-40 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
+                                    <img class="w-full h-48 object-cover object-center" src="https://intellipaat.com/blog/wp-content/uploads/2024/12/8-1.jpg" alt="content">
+                                    <div class="p-6" style="padding:10px">
+                                        <h3 class="tracking-widest text-green-400 text-xs font-medium title-font">Cloud</h3>
+                                        <h2 class="text-lg text-white font-medium title-font mb-3">Cloud Computing</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            </section>
+
+            <section class="text-black-600 body-font">
+                <div class="container px-5 py-24 mx-auto">
+                    <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto" style="padding:30px">
+                    <h1 class="flex-grow sm:pr-16 text-2xl font-medium title-font text-white" style="padding-bottom:15px">Uncover More Breakthroughs and Discoveries</h1>
+                    <a href="viewmore.html" class="inline-block">
+                        <button class="flex items-center justify-center text-white bg-green-500 border-0 px-6 py-3 focus:outline-none hover:bg-green-600 rounded text-base font-medium transition-colors duration-200 ease-in-out w-[120px] h-[45px]" >
+                            View More
+                        </button>
+                    </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="text-black-400 bg-black-900 body-font relative" style="padding-bottom:30px">
+                <div class="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap" style="padding-top:30px">
+                    <div class="lg:w-2/3 md:w-1/2 bg-black-900 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+                    <iframe width="100%" height="100%" title="map" class="absolute inset-0" frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="https://maps.google.com/maps?width=100%&height=600&hl=en&q=20.238211219541096,85.72245912804698+(My%20Business%20Name)&ie=UTF8&t=&z=14&iwloc=B&output=embed" style="filter: grayscale(1) contrast(1.2) opacity(0.16);"></iframe>
+                    <div class="bg-black-900 relative flex flex-wrap py-6 rounded shadow-md">
+                        <div class="lg:w-1/2 px-6">
+                        <h2 class="title-font font-semibold text-white tracking-widest text-xs" style="padding:10px">ADDRESS</h2>
+                        <p class="mt-1 text-white" style="padding:10px">National Highway 16, Janla, Badaraghunathpur, Bhubaneswar, Odisha 752054</p>
+                        </div>
+                        <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
+                        <h2 class="title-font font-semibold text-white tracking-widest text-xs" style="padding:10px">EMAIL</h2>
+                        <a class="text-green-400 leading-relaxed" style="padding:10px">kumarswarup7272@gmail.com</a>
+                        <h2 class="title-font font-semibold text-white tracking-widest text-xs mt-4" style="padding:10px">PHONE</h2>
+                        <p class="leading-relaxed text-white" style="padding:10px">+917205824499</p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="p-4 bg-black-400 md:p-8 lg:p-10" style="padding: 20px">
+                <div class="mx-auto max-w-screen-xl text-center">
+                    <a href="#" class="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white">
+                        <svg width="300" height="100" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Gradient Definition -->
+                            <defs>
+                                <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="lime" />
+                                <stop offset="50%" stop-color="green" />
+                                <stop offset="100%" stop-color="darkgreen" />
+                                </linearGradient>
+                            </defs>
+
+                            <!-- Text Logo -->
+                            <text x="50%" y="60%" text-anchor="middle" fill="url(#greenGradient)"
+                                    font-size="48" font-family="Georgia, serif" font-weight="bold" letter-spacing="2">
+                                LabTalks
+                            </text>
+
+                            <!-- Underline -->
+                            <line x1="60" y1="70" x2="240" y2="70" stroke="url(#greenGradient)" stroke-width="3" stroke-linecap="round" />
+                        </svg>
+
+                           
+                    </a>
+                    <p class="my-6 text-green-500">Open-source library of over 400+ web components and interactive elements built for better web.</p>
+                    <ul class="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white" style="padding: 20px">
+                        <li style="padding-right:10px">
+                            <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
+                        </li>
+                        <li style="padding-right:10px">
+                            <a href="#" class="mr-4 hover:underline md:mr-6">Premium</a>
+                        </li>
+                        <li style="padding-right:10px">
+                            <a href="#" class="mr-4 hover:underline md:mr-6 ">Campaigns</a>
+                        </li>
+                        <li style="padding-right:10px">
+                            <a href="#" class="mr-4 hover:underline md:mr-6">Blog</a>
+                        </li>
+                        <li style="padding-right:10px">
+                            <a href="#" class="mr-4 hover:underline md:mr-6">Affiliate Program</a>
+                        </li>
+                        <li style="padding-right:10px">
+                            <a href="#" class="mr-4 hover:underline md:mr-6">FAQs</a>
+                        </li>
+                        <li style="padding-right:10px">
+                            <a href="#" class="mr-4 hover:underline md:mr-6">Contact</a>
+                        </li>
+                    </ul>
+                    <span class="text-sm text-green-500 sm:text-center">© 2025 <a href="#" class="hover:underline">IndianBAY™</a>. All Rights Reserved.</span>
+                </div>
+            </footer>
+
+        </div>
+        
+    </div>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const sidebar = document.getElementById('sidebar');
+        const dashboard = document.querySelector('.dashboard-container');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.add('active');
+            dashboard.classList.add('overlay');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            dashboard.classList.remove('overlay');
+        });
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+                sidebar.classList.remove('active');
+                dashboard.classList.remove('overlay');
+            }
+        });
+
+        // Popup functionality
+        function closePopup() {
+            const popup = document.getElementById('successPopup');
+            popup.classList.add('fade-out');
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 300);
+        }
+
+        // Auto-close popup after 3 seconds
+        setTimeout(closePopup, 3000);
+    </script>
+</body>
+</html>

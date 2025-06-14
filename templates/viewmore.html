@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LabTalks | User Details</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Fixed header -->
+        <header class="top-bar">
+            <div class="header-content">
+                <div class="header-left">
+                    <h2>LabTalks</h2>
+                </div>
+                <div class="header-right">
+                    <button class="menu-toggle" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <nav class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <h1>LabTalks</h1>
+                </div>
+                <button class="close-menu" id="closeMenu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <ul class="nav-links">
+                <li>
+                    <a href="{{url_for('index')}}">
+                        <i class="fas fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="{{url_for('display')}}">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url_for('update')}}">
+                        <i class="fas fa-edit"></i>
+                        <span>Update</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{url_for('logout')}}">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Log out</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <!-- Blog Cards Section -->
+        <section class="text-black-400 bg-black-900 body-font">
+            <div class="container px-5 py-24 mx-auto">
+
+                <!-- Blog Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Blog Card 1 -->
+                    <div class="bg-black-800 bg-opacity-40 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
+                        <img class="w-full h-48 object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9bErRTtUImDHRzLkGnZNU8NGS1rk5SQEg0A&s" alt="blog">
+                        <div class="p-6">
+                            <h2 class="tracking-widest text-xs title-font font-medium text-green-400 mb-1">Space Science</h2>
+                            <h1 class="title-font text-lg font-medium text-white mb-3">Water Found on Exoplanet</h1>
+                            <p class="leading-relaxed text-gray-400 mb-3">Astronomers detect water vapor in the atmosphere of a planet 110 light-years away.</p>
+                            <div class="flex items-center flex-wrap">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card 2 -->
+                    <div class="bg-black-800 bg-opacity-40 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
+                        <img class="w-full h-48 object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr9ervC_n6a3STWgv3LguACEFfqxyUsaK1hw&s" alt="blog">
+                        <div class="p-6">
+                            <h2 class="tracking-widest text-xs title-font font-medium text-green-400 mb-1">Artificial Intelligence</h2>
+                            <h1 class="title-font text-lg font-medium text-white mb-3">AI Designs New Antibiotics</h1>
+                            <p class="leading-relaxed text-gray-400 mb-3">A deep learning model discovers compounds that kill superbugs resistant to existing drugs.</p>
+                            <div class="flex items-center flex-wrap">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card 3 -->
+                    <div class="bg-black-800 bg-opacity-40 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
+                        <img class="w-full h-48 object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPsEMOwUM-EKWdn5t6sV4p1JrPyFu_2170Ag&s" alt="blog">
+                        <div class="p-6">
+                            <h2 class="tracking-widest text-xs title-font font-medium text-green-400 mb-1">Quantum Computing</h2>
+                            <h1 class="title-font text-lg font-medium text-white mb-3">Quantum Supremacy Achieved</h1>
+                            <p class="leading-relaxed text-gray-400 mb-3">A quantum computer solves a problem faster than any classical computer could.</p>
+                            <div class="flex items-center flex-wrap">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card 4 -->
+                    <div class="bg-black-800 bg-opacity-40 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
+                        <img class="w-full h-48 object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1LmksD-FhcTIv6NQkW1olAs_Lz43yX0jkbA&s" alt="blog">
+                        <div class="p-6">
+                            <h2 class="tracking-widest text-xs title-font font-medium text-green-400 mb-1">Robotics</h2>
+                            <h1 class="title-font text-lg font-medium text-white mb-3">Robot Learns to Walk</h1>
+                            <p class="leading-relaxed text-gray-400 mb-3">A bipedal robot taught itself to walk using trial and error in hours.</p>
+                            <div class="flex items-center flex-wrap">
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Blog Card 4 -->
+                    <div class="bg-black-800 bg-opacity-40 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
+                        <img class="w-full h-48 object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK3ysLCk55_NFiqrqVrvHCt5ii3R2pXM9zlQ&s" alt="blog">
+                        <div class="p-6">
+                            <h2 class="tracking-widest text-xs title-font font-medium text-green-400 mb-1">Genetics</h2>
+                            <h1 class="title-font text-lg font-medium text-white mb-3">CRISPR Cures Genetic Disease</h1>
+                            <p class="leading-relaxed text-gray-400 mb-3">Gene-editing tool CRISPR successfully treats a rare inherited disorder in humans.</p>
+                            <div class="flex items-center flex-wrap">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card 5 -->
+                    <div class="bg-black-800 bg-opacity-40 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
+                        <img class="w-full h-48 object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_R-8Yuz-CsMwfYkitRWN_gyN7lbdTNmZrYw&s" alt="blog">
+                        <div class="p-6">
+                            <h2 class="tracking-widest text-xs title-font font-medium text-green-400 mb-1">Climate Science</h2>
+                            <h1 class="title-font text-lg font-medium text-white mb-3">Hottest Year Recorded</h1>
+                            <p class="leading-relaxed text-gray-400 mb-3">Global temperature records show Earth’s hottest year, driven by greenhouse gases and El Niño.</p>
+                            <div class="flex items-center flex-wrap">
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Blog Card 6 -->
+                    <div class="bg-black-800 bg-opacity-40 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
+                        <img class="w-full h-48 object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1oliuMayb5vMI9iXqLQPLK1naubQe4gjC1w&s" alt="blog">
+                        <div class="p-6">
+                            <h2 class="tracking-widest text-xs title-font font-medium text-green-400 mb-1">Astronomy</h2>
+                            <h1 class="title-font text-lg font-medium text-white mb-3">First Image of Black Hole</h1>
+                            <p class="leading-relaxed text-gray-400 mb-3">Scientists capture the first-ever image of a black hole’s event horizon.</p>
+                            <div class="flex items-center flex-wrap">
+                            </div>
+                        </div>
+                    </div>
+
+                     <!-- Blog Card 7 -->
+                    <div class="bg-black-800 bg-opacity-40 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
+                        <img class="w-full h-48 object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo9MTqAF3cQurkuPHd2Yl3mppEHGbIbfkPkw&s" alt="blog">
+                        <div class="p-6">
+                            <h2 class="tracking-widest text-xs title-font font-medium text-green-400 mb-1">Renewable Energy</h2>
+                            <h1 class="title-font text-lg font-medium text-white mb-3">Solar Panels Break Efficiency Record</h1>
+                            <p class="leading-relaxed text-gray-400 mb-3">Engineers develop solar panels that convert over 47% of sunlight into energy.</p>
+                            <div class="flex items-center flex-wrap">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Blog Card 8 -->
+                    <div class="bg-black-800 bg-opacity-40 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 hover:transform hover:scale-105">
+                        <img class="w-full h-48 object-cover" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQslzl-854UFM2QZYSZ5xrEBQXWywzc_ufvJw&s" alt="blog">
+                        <div class="p-6">
+                            <h2 class="tracking-widest text-xs title-font font-medium text-green-400 mb-1">Marine Biology</h2>
+                            <h1 class="title-font text-lg font-medium text-white mb-3">New Deep-Sea Species Found</h1>
+                            <p class="leading-relaxed text-gray-400 mb-3">Researchers discover previously unknown creatures in the Pacific Ocean’s depths.</p>
+                            <div class="flex items-center flex-wrap">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const closeMenu = document.getElementById('closeMenu');
+        const sidebar = document.getElementById('sidebar');
+        const dashboard = document.querySelector('.dashboard-container');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.add('active');
+            dashboard.classList.add('overlay');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            dashboard.classList.remove('overlay');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+                sidebar.classList.remove('active');
+                dashboard.classList.remove('overlay');
+            }
+        });
+
+        document.addEventListener('scroll', () => {
+            const header = document.querySelector('.top-bar');
+            if (window.scrollY > 10) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

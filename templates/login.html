@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login LabTalks</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="logincontent">
+            <div class="logintop">
+                <h1>Welcome Back to LabTalks!</h1>
+                <p>Please login to continue</p>
+            </div>
+            <div class="loginbottom">
+                <form action="{{ url_for('login')}}" method="post" autocomplete="off">
+                    <div class="form-group">
+                        <input type="text" name="username" placeholder="Username" class="textbox" id="username" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" name="password" placeholder="Password" class="textbox" id="password" required>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                </form>
+                <p class="register-link">New to this page? <a href="{{ url_for('register')}}">Register here</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
