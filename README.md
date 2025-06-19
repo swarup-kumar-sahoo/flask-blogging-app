@@ -1,5 +1,5 @@
----
-```markdown
+
+```
 # 📝 Flask Blogging App — LabTalks
 
 LabTalks is a simple and modern blogging application built using **Flask**. It allows users to view science news posts, add blogs, and explore scientific discoveries in a clean, responsive interface.
