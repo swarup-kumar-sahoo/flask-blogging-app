@@ -24,21 +24,3 @@ LabTalks is a simple and modern blogging application built using **Flask**. It a
 
 ---
 
-## 📂 Project Structure
-
-/flask-blog-app
-├── app.py                     # Main Flask application
-├── static/                     # Static files (CSS, JS, images)
-│   ├── css/
-│   │   └── style.css           # Custom styles (if any)
-│   └── img/
-│       └── logo.png            # (Optional) App logo or other images
-├── templates/                  # Jinja2 HTML templates
-│   ├── base.html               # (Optional) Base template for reuse
-│   ├── index.html              # Main page after login
-│   ├── login.html              # Login form
-│   ├── register.html           # Registration form
-│   ├── display.html            # Display user profile
-│   ├── update.html             # Update user profile
-│   └── viewmore.html           # View more users/blogs
-
