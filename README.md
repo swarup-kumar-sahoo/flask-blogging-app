@@ -36,6 +36,6 @@ LabTalks is a simple and modern blogging application built using **Flask**. It a
 │ ├── update.html
 │ └── viewmore.html
 ├── static/
-│ └── css/
+│ └── style.css/
 └── README.md
 
